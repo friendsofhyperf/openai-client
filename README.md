@@ -1,4 +1,4 @@
-# Gateway Worker For Hyperf
+# Hyperf OpenAI Client
 
 [![Latest Test](https://github.com/friendsofhyperf/openai-client/workflows/tests/badge.svg)](https://github.com/friendsofhyperf/openai-client/actions)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/friendsofhyperf/openai-client.svg?style=flat-square)](https://packagist.org/packages/friendsofhyperf/openai-client)
