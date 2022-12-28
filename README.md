@@ -26,7 +26,7 @@ php bin/hyperf.php vendor:publish friendsofhyperf/openai-client
 ~~~php
 use OpenAI\Client;
 
-$result = di(Client::class)::completions()->create([
+$result = di(Client::class)->completions()->create([
     'model' => 'text-davinci-003',
     'prompt' => 'PHP is',
 ]);
