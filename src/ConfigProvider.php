@@ -25,7 +25,7 @@ class ConfigProvider
             'publish' => [
                 [
                     'id' => 'config',
-                    'description' => 'The config for openai.',
+                    'description' => 'The config file for OpenAI.',
                     'source' => __DIR__ . '/../publish/openai.php',
                     'destination' => BASE_PATH . '/config/autoload/openai.php',
                 ],

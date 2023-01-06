@@ -9,6 +9,6 @@ declare(strict_types=1);
  * @contact  huangdijia@gmail.com
  */
 return [
-    'api_key' => env('OPENAI_API_KEY'),
+    'api_key' => env('OPENAI_API_KEY', ''),
     'organization' => env('OPENAI_ORGANIZATION'),
 ];

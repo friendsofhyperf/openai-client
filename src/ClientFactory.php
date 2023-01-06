@@ -24,12 +24,10 @@ class ClientFactory
     public function __invoke(ContainerInterface $container)
     {
         $config = $container->get(ConfigInterface::class);
-        $clientFactory = $container->get(GuzzleClientFactory::class);
-
-        $apiToken = $config->get('openai.api_key');
+        $apiKey = $config->get('openai.api_key');
         $organization = $config->get('openai.organization');
 
-        $apiToken = ApiToken::from($apiToken);
+        $apiToken = ApiToken::from($apiKey);
         $baseUri = BaseUri::from('api.openai.com/v1');
         $headers = Headers::withAuthorization($apiToken);
 
@@ -37,8 +35,7 @@ class ClientFactory
             $headers = $headers->withOrganization($organization);
         }
 
-        $client = $clientFactory->create();
-
+        $client = $container->get(GuzzleClientFactory::class)->create();
         $transporter = new HttpTransporter($client, $baseUri, $headers);
 
         return new Client($transporter);
