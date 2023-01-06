@@ -1,0 +1,6 @@
+/.github export-ignore
+/.vscode export-ignore
+/.php-cs-fixer.dist.php export-ignore
+/.php-cs-fixer.php export-ignore
+/tests export-ignore
+/phpstan.neon export-ignore
