@@ -44,8 +44,8 @@
     },
     "minimum-stability": "dev",
     "scripts": {
-        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src",
-        "cs-fix": "php-cs-fixer fix $1",
-        "test": "phpunit -c phpunit.xml --colors=always"
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src",
+        "cs-fix": "@php vendor/bin/php-cs-fixer fix $1",
+        "test": "@php vendor/bin/phpunit -c phpunit.xml --colors=always"
     }
 }
