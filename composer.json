@@ -17,12 +17,14 @@
         "hyperf/config": "~3.0.0",
         "hyperf/di": "~3.0.0",
         "hyperf/guzzle": "~3.0.0",
-        "openai-php/client": "^0.2.1"
+        "openai-php/client": "^0.3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpstan/phpstan": "^1.0",
-        "phpunit/phpunit": "^9.5|^10.0"
+        "phpstan/phpstan": "^1.10.3",
+        "pestphp/pest": "^2.0.0",
+        "pestphp/pest-plugin-arch": "^2.0.0",
+        "pestphp/pest-plugin-mock": "^2.0.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,12 +42,15 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "scripts": {
         "analyse": "@php vendor/bin/phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src",
         "cs-fix": "@php vendor/bin/php-cs-fixer fix $1",
-        "test": "@php vendor/bin/phpunit -c phpunit.xml --colors=always"
+        "test": "@php vendor/bin/pest"
     }
 }
