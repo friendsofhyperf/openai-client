@@ -11,7 +11,12 @@ declare(strict_types=1);
 namespace FriendsOfHyperf\OpenAi;
 
 use FriendsOfHyperf\OpenAi\Exception\ApiKeyIsMissing;
-use OpenAI;
+use Hyperf\Guzzle\ClientFactory as GuzzleClientFactory;
+use OpenAI\Client;
+use OpenAI\Transporters\HttpTransporter;
+use OpenAI\ValueObjects\ApiKey;
+use OpenAI\ValueObjects\Transporter\BaseUri;
+use OpenAI\ValueObjects\Transporter\Headers;
 use Psr\Container\ContainerInterface;
 
 class ClientFactory
@@ -25,6 +30,17 @@ class ClientFactory
             throw ApiKeyIsMissing::create();
         }
 
-        return OpenAI::client($apiKey, $organization);
+        $apiKey = ApiKey::from($apiKey);
+        $baseUri = BaseUri::from('api.openai.com/v1');
+        $headers = Headers::withAuthorization($apiKey);
+
+        if ($organization !== null) {
+            $headers = $headers->withOrganization($organization);
+        }
+
+        $client = $container->get(GuzzleClientFactory::class)->create();
+        $transporter = new HttpTransporter($client, $baseUri, $headers);
+
+        return new Client($transporter);
     }
 }
