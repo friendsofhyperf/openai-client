@@ -48,6 +48,7 @@
         }
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "analyse": "@php vendor/bin/phpstan analyse --ansi --memory-limit 300M -l 0 -c phpstan.neon ./src",
         "cs-fix": "@php vendor/bin/php-cs-fixer fix $1",
