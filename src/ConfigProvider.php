@@ -12,7 +12,7 @@ namespace FriendsOfHyperf\OpenAi;
 
 use OpenAI\Client;
 
-class ConfigProvider
+final class ConfigProvider
 {
     public function __invoke()
     {

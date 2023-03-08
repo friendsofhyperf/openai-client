@@ -19,7 +19,7 @@ use OpenAI\ValueObjects\Transporter\BaseUri;
 use OpenAI\ValueObjects\Transporter\Headers;
 use Psr\Container\ContainerInterface;
 
-class ClientFactory
+final class ClientFactory
 {
     public function __invoke(ContainerInterface $container)
     {
