@@ -17,13 +17,13 @@
         "hyperf/config": "~3.0.0",
         "hyperf/di": "~3.0.0",
         "hyperf/guzzle": "~3.0.0",
-        "openai-php/client": "^0.4.0"
+        "openai-php/client": "^0.4.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpstan/phpstan": "^1.10.3",
-        "pestphp/pest": "^2.0.0",
-        "pestphp/pest-plugin-arch": "^2.0.0",
+        "phpstan/phpstan": "^1.10.8",
+        "pestphp/pest": "^2.2.3",
+        "pestphp/pest-plugin-arch": "^2.0.2",
         "pestphp/pest-plugin-mock": "^2.0.0"
     },
     "autoload": {
