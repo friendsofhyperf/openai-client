@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace FriendsOfHyperf\OpenAi;
 
 use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 
 final class ConfigProvider
 {
@@ -21,6 +22,7 @@ final class ConfigProvider
         return [
             'dependencies' => [
                 Client::class => ClientFactory::class,
+                ClientContract::class => fn ($container) => $container->get(Client::class), // alias for Client::class
             ],
             'publish' => [
                 [
